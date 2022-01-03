@@ -1,0 +1,42 @@
+version: '3.5'
+services:
+  jupter-client:
+    build:
+        context: ./client
+    ports:
+        - 4200:4200
+    container_name: jupter-client
+    depends_on:
+      - jupter-calisto-api
+      - jupter-europa-api
+  jupter-calisto-api:
+    container_name: jupter-calisto-api
+    build: 
+      context: ./calisto
+    ports:
+      - 3000:3000
+    volumes:
+      - ./calisto:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: always
+    depends_on:
+      - jupter-nginx-server
+  jupter-europa-api:
+    container_name: jupter-europa-api
+    build: 
+      context: ./europa
+    ports:
+      - 3001:3001
+    volumes:
+      - ./europa:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: always
+    depends_on:
+      - jupter-nginx-server
+  jupter-nginx-server:
+    container_name: jupter-nginx-server
+    build:
+        context: ./nginx
+    ports:
+      - 8080:80
+    restart: always
