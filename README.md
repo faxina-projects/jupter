@@ -8,6 +8,7 @@
   - [Instalação](#instalação)
   - [Acesso](#acesso)
     - [Aplicação](#aplicação)
+  - [Referências](#references)
 
 ## Requisitos
 
@@ -42,3 +43,7 @@ $ docker-compose up --build
 - client: http://localhost:4200
 - calisto: http://localhost:3000
 - europa: http://localhost:3001
+
+## Referências
+- https://javascript.plainenglish.io/using-nginx-as-a-reverse-proxy-for-containerized-node-js-microservices-e7c4800f05a1
+- https://ashwin9798.medium.com/nginx-with-docker-and-node-js-a-beginners-guide-434fe1216b6b
